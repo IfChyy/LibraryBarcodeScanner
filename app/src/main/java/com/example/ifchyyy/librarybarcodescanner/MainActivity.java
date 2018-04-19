@@ -12,6 +12,9 @@ import android.widget.Toast;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
+/**
+ * main activity class to hold the button for scanning the books
+ */
 
 public class MainActivity extends AppCompatActivity implements OnClickListener {
 
@@ -32,35 +35,39 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
 
         //init content text
         contentText = (TextView) findViewById(R.id.scan_content);
+
+
     }
 
 
     @Override
     public void onClick(View v) {
         if (v.getId() == scanButton.getId()) {
-
+            //init the scanIntegrator from ZxIng library
             IntentIntegrator scanIntegrator = new IntentIntegrator(this);
+            //initiate the scan on button pressed
             scanIntegrator.initiateScan();
         }
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {
+        //intetent result returnred from the scanned object
         IntentResult scanningResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
-
+        //check if result is not null
         if (scanningResult != null) {
-
+            //variables to stroe the format and content of the scanned item
             String scanContent = scanningResult.getContents();
-
-
             String scanFormat = scanningResult.getFormatName();
 
-            formatText.setText("FORMAT: " + scanFormat);
-            contentText.setText("CONTENT: " + scanContent);
+            //fill our text views with thtat information
+            formatText.setText("Format: " + scanFormat);
+            contentText.setText("Content: " + scanContent);
 
         } else {
+            //if scanned result is equal to null, display a message
 
-            Toast.makeText(getApplicationContext(),
-                    "No scan data received!", Toast.LENGTH_SHORT).show();
         }
     }
+    
+
 }

@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">LibraryBarcodeScanner</string>
+
+
+    <string name="google_books_api">AIzaSyADTI4zKbc5bX23RQBMP472FQSk0GqKVB8</string>
 </resources>
