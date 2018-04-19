@@ -1,15 +1,18 @@
-<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:padding="10dp">
 
     <Button
         android:id="@+id/scan_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:text="Scan" />
-
+        android:background="#ff333333"
+        android:padding="10dp"
+        android:text="Scan"
+        android:textColor="#ffcccccc" />
 
     <TextView
         android:id="@+id/scan_format"
@@ -26,4 +29,12 @@
         android:layout_below="@id/scan_format"
         android:layout_centerHorizontal="true"
         android:textIsSelectable="true" />
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
 </RelativeLayout>
+
+
+

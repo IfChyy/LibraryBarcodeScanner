@@ -29,5 +29,9 @@ dependencies {
     implementation('com.journeyapps:zxing-android-embedded:3.6.0') { transitive = false }
 
     /*used for snakc bar */
-    implementation 'com.android.support:design:22.2.0'
+    implementation 'com.android.support:design:27.1.1'
+
+    implementation 'com.google.code.gson:gson:2.8.2'
+    implementation 'com.squareup.picasso:picasso:2.71828'
+    implementation 'com.android.volley:volley:1.1.0'
 }

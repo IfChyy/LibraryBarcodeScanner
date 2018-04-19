@@ -3,4 +3,6 @@
 
 
     <string name="google_books_api">AIzaSyADTI4zKbc5bX23RQBMP472FQSk0GqKVB8</string>
+    <string name="title_activity_book">BookActivity</string>
+
 </resources>
