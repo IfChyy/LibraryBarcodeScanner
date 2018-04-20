@@ -24,8 +24,8 @@ public class BookCursorWrapper extends CursorWrapper {
         String bookDate = getString(getColumnIndex(SQLiteBookTable.BookTable.Columns.DATE));
         String bookPreview = getString(getColumnIndex(SQLiteBookTable.BookTable.Columns.PREVIEW));
         String bookPhoto = getString(getColumnIndex(SQLiteBookTable.BookTable.Columns.PHOTO));
-        int bookIsReaded = getInt(getColumnIndex(SQLiteBookTable.BookTable.Columns.READ));
-        int bookIsLented = getInt(getColumnIndex(SQLiteBookTable.BookTable.Columns.LENT));
+        int bookIsRead = getInt(getColumnIndex(SQLiteBookTable.BookTable.Columns.READ));
+        int bookIsLent = getInt(getColumnIndex(SQLiteBookTable.BookTable.Columns.LENT));
 
         Book book = new Book();
         book.setBookContent(bookContent);
@@ -35,8 +35,8 @@ public class BookCursorWrapper extends CursorWrapper {
         book.setBookDate(bookDate);
         book.setBookPhoto(bookPhoto);
         book.setBookPreviewLink(bookPreview);
-        book.setRead(bookIsReaded != 0);
-        book.setLent(bookIsLented != 0);
+        book.setRead(bookIsRead != 0);
+        book.setLent(bookIsLent != 0);
 
 
 
