@@ -34,7 +34,7 @@ public class BooksLab{
         return tripsLab;
     }
 
-    public Book getBooks(String contentId) {
+    public Book getBook(String contentId) {
 
         //search the DB fro trip with current id
         BookCursorWrapper cursor = queryBooks(BookTable.Columns.CONTENT_ID + "= ?",
@@ -65,8 +65,19 @@ public class BooksLab{
     }
 
     //delete a trip from the database
-    public void deleteTrip(Book book) {
+    public void deleteBook(Book book) {
         database.delete(BookTable.NAME, BookTable.Columns.CONTENT_ID + " == \"" + book.getBookContent() + "\"", null);
+    }
+
+    ///method to update the infromation in the database
+    //    // use "?" for adding the new id and preventing sql injection atack
+    //    //to treat everything as a string
+    public void updateBook(Book book) {
+        ContentValues values = getContentValues(book);
+
+        database.update(BookTable.NAME, values,
+                BookTable.Columns.CONTENT_ID + " = ?",
+                new String[]{book.getBookContent()});
     }
 
     //add rows of information about each trip to the database columns

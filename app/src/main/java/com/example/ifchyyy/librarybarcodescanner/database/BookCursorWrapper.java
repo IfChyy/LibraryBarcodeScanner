@@ -17,9 +17,9 @@ public class BookCursorWrapper extends CursorWrapper {
 
     //get infromation about task
     public Book getBooks() {
-
-        String bookTitle = getString(getColumnIndex(SQLiteBookTable.BookTable.Columns.CONTENT_ID));
-        String bookAuthor = getString(getColumnIndex(SQLiteBookTable.BookTable.Columns.TITLE));
+        String bookContent = getString(getColumnIndex(SQLiteBookTable.BookTable.Columns.CONTENT_ID));
+        String bookTitle = getString(getColumnIndex(SQLiteBookTable.BookTable.Columns.TITLE));
+        String bookAuthor = getString(getColumnIndex(SQLiteBookTable.BookTable.Columns.AUTHOR));
         String bookDescription = getString(getColumnIndex(SQLiteBookTable.BookTable.Columns.DESCRIPTION));
         String bookDate = getString(getColumnIndex(SQLiteBookTable.BookTable.Columns.DATE));
         String bookPreview = getString(getColumnIndex(SQLiteBookTable.BookTable.Columns.PREVIEW));
@@ -27,8 +27,8 @@ public class BookCursorWrapper extends CursorWrapper {
         int bookIsReaded = getInt(getColumnIndex(SQLiteBookTable.BookTable.Columns.READ));
         int bookIsLented = getInt(getColumnIndex(SQLiteBookTable.BookTable.Columns.LENT));
 
-
         Book book = new Book();
+        book.setBookContent(bookContent);
         book.setBookTitle(bookTitle);
         book.setBookAuthor(bookAuthor);
         book.setBookDescription(bookDescription);
@@ -36,7 +36,10 @@ public class BookCursorWrapper extends CursorWrapper {
         book.setBookPhoto(bookPhoto);
         book.setBookPreviewLink(bookPreview);
         book.setRead(bookIsReaded != 0);
-        book.setLent(bookIsReaded != 0);
+        book.setLent(bookIsLented != 0);
+
+
+
 
         return book;
     }

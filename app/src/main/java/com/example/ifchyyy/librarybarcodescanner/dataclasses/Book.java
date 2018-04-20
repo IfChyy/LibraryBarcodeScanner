@@ -3,6 +3,8 @@ package com.example.ifchyyy.librarybarcodescanner.dataclasses;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.Date;
+
 /**
  * Book data class for storing each book info
  */
@@ -88,4 +90,6 @@ public class Book {
     public void setLent(Boolean lent) {
         this.lent = lent;
     }
+
+
 }

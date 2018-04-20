@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,12 +19,12 @@ import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.ifchyyy.librarybarcodescanner.adapters.BookListAdapter;
 import com.example.ifchyyy.librarybarcodescanner.dataclasses.Book;
 import com.example.ifchyyy.librarybarcodescanner.dataclasses.BooksLab;
 import com.google.gson.Gson;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
-import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -44,6 +45,9 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
     private ImageView thumbView;
     private String scanContent;
     private BooksLab bookLab;
+    private ListView bookListView;
+    private BookListAdapter adapter;
+    private ArrayList<Book> bookArrayList;
 
 
     @Override
@@ -69,8 +73,18 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
         contentText = (TextView) findViewById(R.id.scan_content);
 
 
-        ArrayList<Book> bookArrayList = bookLab.getBooks();
+        bookArrayList = bookLab.getBooks();
         Toast.makeText(this, bookArrayList.size() + " ", Toast.LENGTH_SHORT).show();
+
+        //init book list view
+        bookListView = findViewById(R.id.bookListView);
+
+        //init adapter
+        adapter = new BookListAdapter(this, bookArrayList);
+
+        bookListView.setAdapter(adapter);
+
+
 /*
 
         //init preview button
@@ -96,6 +110,14 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        bookArrayList = bookLab.getBooks();
+        //init adapter
+        adapter = new BookListAdapter(this, bookArrayList);
+        bookListView.setAdapter(adapter);
+    }
 
     @Override
     public void onClick(View v) {
@@ -175,9 +197,17 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
                             book.setBookPhoto(values.getJSONObject("imageLinks").getString("smallThumbnail"));
                             book.setBookPreviewLink(values.getString("previewLink"));
 
+                            Book bookTwo = bookLab.getBook(book.getBookContent());
 
-                            bookLab.addBook(book);
+                            if (bookTwo != null) {
 
+                            } else {
+                                bookLab.addBook(book);
+                            }
+                            bookArrayList = bookLab.getBooks();
+                            //init adapter
+                            adapter = new BookListAdapter(getApplicationContext(), bookArrayList);
+                            bookListView.setAdapter(adapter);
 
                         } catch (JSONException e) {
                             e.printStackTrace();

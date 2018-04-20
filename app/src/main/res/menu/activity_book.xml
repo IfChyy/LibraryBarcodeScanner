@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/update_book"
+        android:icon="@drawable/update_book"
+        android:title="Item"
+        app:showAsAction="ifRoom|withText" />
+
+    <item
+        android:id="@+id/delete_book"
+        android:icon="@drawable/delete_book"
+        android:title="Item"
+        app:showAsAction="ifRoom|withText" />
+</menu>

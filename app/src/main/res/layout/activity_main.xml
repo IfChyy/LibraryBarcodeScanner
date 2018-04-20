@@ -31,8 +31,10 @@
         android:textIsSelectable="true" />
 
     <ListView
+        android:id="@+id/bookListView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_below="@id/scan_content"/>
 
 </RelativeLayout>
 
