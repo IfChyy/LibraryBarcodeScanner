@@ -13,21 +13,21 @@
 
         <TextView
             android:id="@+id/book_title"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textAlignment="center"
             android:textColor="#ff000000"
             android:textIsSelectable="true"
-            android:textStyle="bold"
-            android:textAlignment="center"/>
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/book_author"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textAlignment="center"
             android:textColor="#ffa13143"
             android:textIsSelectable="true"
-            android:textStyle="bold"
-            android:textAlignment="center"/>
+            android:textStyle="bold" />
 
         <ImageView
             android:id="@+id/thumb"
@@ -37,15 +37,15 @@
 
         <TextView
             android:id="@+id/book_date"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="#ff592d94"
             android:textIsSelectable="true" />
 
         <TextView
             android:id="@+id/book_description"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
             android:textColor="#ff000000"
             android:textIsSelectable="true" />
 
