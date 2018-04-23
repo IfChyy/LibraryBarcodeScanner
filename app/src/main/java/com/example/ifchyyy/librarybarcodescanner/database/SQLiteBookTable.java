@@ -1,5 +1,8 @@
 package com.example.ifchyyy.librarybarcodescanner.database;
 
+/**
+ * sql book class creating the fields of the database
+ */
 public class SQLiteBookTable  {
 
     //creatte table

@@ -84,30 +84,6 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
 
         bookListView.setAdapter(adapter);
 
-
-/*
-
-        //init preview button
-        previewButton = findViewById(R.id.preview_btn);
-        previewButton.setOnClickListener(this);
-     //   previewButton.setVisibility(View.INVISIBLE);
-
-        //init author thext
-        bookAuthor = findViewById(R.id.book_author);
-
-        //init book title text
-        bookTitle = findViewById(R.id.book_title);
-
-        //init book description text
-        bookDescription = findViewById(R.id.book_description);
-
-        //init date of book text
-        bookDate = findViewById(R.id.book_date);
-
-        //init book cover photo
-        thumbView = findViewById(R.id.thumb);
-*/
-
     }
 
     @Override
@@ -129,14 +105,6 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
             scanIntegrator.initiateScan();
 
         }
-
-     /*   //if preview button is pressed
-        if (v.getId() == previewButton.getId()) {
-            ArrayList<Book> bookArrayList = bookLab.getBooks();
-            Toast.makeText(this, bookArrayList.size() + " ", Toast.LENGTH_SHORT).show();
-
-        }*/
-
 
     }
 

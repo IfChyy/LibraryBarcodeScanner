@@ -13,6 +13,12 @@ import com.example.ifchyyy.librarybarcodescanner.database.SQLiteBookTable.BookTa
 import java.util.ArrayList;
 import java.util.UUID;
 
+/**
+ * books Lab class for quering the database for particular book,
+ * or get all books.
+ * Adding updating and deleting books from the database;
+ *
+ */
 public class BooksLab{
     private SQLiteDatabase database;
     private static BooksLab tripsLab;

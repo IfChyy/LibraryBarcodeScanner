@@ -8,6 +8,9 @@ import com.example.ifchyyy.librarybarcodescanner.dataclasses.Book;
 import java.util.Date;
 import java.util.UUID;
 
+/**
+ * Book cursor wrapper class helper class for querying through each book
+ */
 public class BookCursorWrapper extends CursorWrapper {
 
     public BookCursorWrapper(Cursor cursor) {

@@ -1,5 +1,7 @@
 package com.example.ifchyyy.librarybarcodescanner;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -18,6 +20,11 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
+/**
+ * Book activity class represents each book as an individual screen
+ * showing info about the author, title, description of the book,
+ * and a preview link
+ */
 public class BookActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button previewButton;
@@ -99,19 +106,21 @@ public class BookActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         //if preview button is pressed
         if (v.getId() == previewButton.getId()) {
-            ArrayList<Book> bookArrayList = bookLab.getBooks();
-            Toast.makeText(this, bookArrayList.size() + " ", Toast.LENGTH_SHORT).show();
+            //open browser with the preview link of the book
+            Intent in = new Intent(Intent.ACTION_VIEW, Uri.parse(book.getBookPreviewLink()));
+            startActivity(in);
 
         }
         //check if book read and set it
         if (v.getId() == read.getId()) {
+            //change book read state
             book.setRead(!book.getRead());
 
-            Toast.makeText(this, book.getRead() + " ", Toast.LENGTH_SHORT).show();
         }
 
         //check if book lent set it
         if (v.getId() == lent.getId()) {
+            //change book lent state
             book.setLent(!book.getLent());
         }
     }

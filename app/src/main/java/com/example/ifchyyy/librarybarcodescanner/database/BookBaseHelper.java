@@ -4,6 +4,9 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+/**
+ * Book base helper class extending sqlite open helper to create the database
+ */
 public class BookBaseHelper extends SQLiteOpenHelper {
     private static final int VERISON = 1;
     private static final String DATABASE_NAME = "booksDatabase.db";

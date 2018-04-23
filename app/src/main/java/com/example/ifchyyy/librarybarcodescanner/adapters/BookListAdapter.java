@@ -19,6 +19,9 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
+/**
+ * Adapter class helper for populating the arraylist of books
+ */
 public class BookListAdapter extends ArrayAdapter<Book> {
 
     private ArrayList<Book> trips;
@@ -31,7 +34,7 @@ public class BookListAdapter extends ArrayAdapter<Book> {
         this.context = context;
 
     }
-
+    //view holder class helper for holding each item individually
     private class ViewHolder{
         ImageView bookCover;
         TextView bookTitle;
@@ -72,6 +75,7 @@ public class BookListAdapter extends ArrayAdapter<Book> {
             holder.bookCover = convertView.findViewById(R.id.bookCover);
             Picasso.get().load(book.getBookPhoto()).resize(100,100).into(holder.bookCover);
 
+            //set two checkboxes for read or lent book
             holder.read = convertView.findViewById(R.id.read);
             holder.read.setChecked(book.getRead());
             holder.read.setClickable(false);
@@ -83,7 +87,7 @@ public class BookListAdapter extends ArrayAdapter<Book> {
 
 
 
-
+            //get if book clicked to open a new activity showing book info
             convertView.setTag(holder);
             convertView.setOnClickListener(new View.OnClickListener() {
                 @Override
