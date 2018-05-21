@@ -79,10 +79,12 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
         //init book list view
         bookListView = findViewById(R.id.bookListView);
 
-        //init adapter
-        adapter = new BookListAdapter(this, bookArrayList);
+        if (bookArrayList.size() > 0) {
+            //init adapter
+            adapter = new BookListAdapter(this, bookArrayList);
 
-        bookListView.setAdapter(adapter);
+            bookListView.setAdapter(adapter);
+        }
 
     }
 
@@ -90,9 +92,12 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
     protected void onResume() {
         super.onResume();
         bookArrayList = bookLab.getBooks();
-        //init adapter
-        adapter = new BookListAdapter(this, bookArrayList);
-        bookListView.setAdapter(adapter);
+
+        if (bookArrayList.size() > 0) {
+            //init adapter
+            adapter = new BookListAdapter(this, bookArrayList);
+            bookListView.setAdapter(adapter);
+        }
     }
 
     @Override
